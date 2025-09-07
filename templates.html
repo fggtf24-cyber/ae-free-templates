@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бесплатные шаблоны After Effects - Коллекция</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">AE Templates</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a href="templates.html" class="nav-link active">Шаблоны</a>
+                </li>
+            </ul>
+            <div class="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный контент -->
+    <main class="main-content">
+        <!-- Заголовок страницы -->
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">Шаблоны логотипов After Effects</h1>
+                <p class="page-description">
+                    Выберите подходящий шаблон логотипа для вашего проекта. Все шаблоны бесплатны и готовы к использованию в Adobe After Effects.
+                </p>
+            </div>
+        </section>
+
+        <!-- Фильтры -->
+        <section class="filters">
+            <div class="container">
+                <div class="filter-container">
+                    <button class="filter-btn active" data-category="all">Все</button>
+                    <button class="filter-btn" data-category="logo">Логотипы</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Сетка шаблонов -->
+        <section class="templates">
+            <div class="container">
+                <div class="templates-grid" id="templatesGrid">
+                    <!-- Шаблоны будут добавлены через JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно для шаблона -->
+    <div class="modal" id="templateModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage">
+                    <!-- Изображение шаблона -->
+                </div>
+                <div class="modal-info">
+                    <h2 class="modal-title" id="modalTitle">Название шаблона</h2>
+                    <p class="modal-description" id="modalDescription">Описание шаблона</p>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Категория:</span>
+                            <span class="detail-value" id="modalCategory">Логотипы</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Размер:</span>
+                            <span class="detail-value" id="modalSize">25.0 MB</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Версия AE:</span>
+                            <span class="detail-value" id="modalFormat">AE 2020+</span>
+                        </div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="https://drive.google.com/drive/folders/1lBeXt7f2eRE4Y27EUm9AAQfDziVRQ_4S?usp=drive_link" 
+                           class="btn btn-primary download-btn" 
+                           id="downloadBtn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            <span>Скачать шаблон</span>
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">AE Templates</span>
+                </div>
+                <p class="footer-description">
+                    Создавайте потрясающие видео с бесплатными шаблонами After Effects
+                </p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AE Templates. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
