@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTemplates();
     initializeEventListeners();
     initializeAnimations();
-    initializeMobileOptimizations();
 });
 
 // Инициализация шаблонов
@@ -293,46 +292,12 @@ function showNotification(message, type = 'info') {
     // Создание элемента уведомления
     const notification = document.createElement('div');
     notification.className = `notification notification-${type}`;
-    
-    // Если это уведомление с email, добавляем кнопку копирования
-    if (message.includes('fggtf24@gmail.com')) {
-        notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-message">${message}</span>
-                <div class="notification-actions">
-                    <button class="notification-copy" title="Копировать email">📋</button>
-                    <button class="notification-close">&times;</button>
-                </div>
-            </div>
-        `;
-        
-        // Добавляем обработчик для копирования email
-        const copyBtn = notification.querySelector('.notification-copy');
-        copyBtn.addEventListener('click', function() {
-            navigator.clipboard.writeText('fggtf24@gmail.com').then(() => {
-                copyBtn.textContent = '✓';
-                copyBtn.style.background = 'var(--success-color)';
-                setTimeout(() => {
-                    copyBtn.textContent = '📋';
-                    copyBtn.style.background = '';
-                }, 2000);
-            }).catch(() => {
-                copyBtn.textContent = '✗';
-                copyBtn.style.background = 'var(--error-color)';
-                setTimeout(() => {
-                    copyBtn.textContent = '📋';
-                    copyBtn.style.background = '';
-                }, 2000);
-            });
-        });
-    } else {
-        notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-message">${message}</span>
-                <button class="notification-close">&times;</button>
-            </div>
-        `;
-    }
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close">&times;</button>
+        </div>
+    `;
     
     // Стили для уведомления
     notification.style.cssText = `
@@ -376,7 +341,7 @@ function showNotification(message, type = 'info') {
                 }
             }, 300);
         }
-    }, 8000);
+    }, 5000);
 }
 
 // Обработчик для кнопки "Предварительный просмотр"
@@ -390,7 +355,7 @@ document.addEventListener('click', function(e) {
 document.addEventListener('click', function(e) {
     if (e.target.textContent === 'Узнать больше') {
         e.preventDefault();
-        showNotification('Свой шаблон можно скинуть на этот адрес: fggtf24@gmail.com', 'info');
+        showNotification('Дополнительная информация будет добавлена позже', 'info');
     }
 });
 
@@ -476,109 +441,10 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = additionalStyles;
 document.head.appendChild(styleSheet);
 
-// Мобильные оптимизации
-function initializeMobileOptimizations() {
-    // Предотвращение двойного тапа для зума на iOS
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-
-    // Улучшенная обработка касаний для мобильных устройств
-    const touchElements = document.querySelectorAll('.template-card, .category-card, .btn, .filter-btn');
-    touchElements.forEach(element => {
-        element.addEventListener('touchstart', function() {
-            this.style.transform = 'scale(0.98)';
-        });
-        
-        element.addEventListener('touchend', function() {
-            this.style.transform = '';
-        });
-    });
-
-    // Оптимизация прокрутки для мобильных устройств
-    let ticking = false;
-    function updateScrollPosition() {
-        const navbar = document.querySelector('.navbar');
-        if (navbar) {
-            if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(26, 26, 26, 0.98)';
-                navbar.style.backdropFilter = 'blur(15px)';
-            } else {
-                navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-                navbar.style.backdropFilter = 'blur(10px)';
-            }
-        }
-        ticking = false;
-    }
-
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            requestAnimationFrame(updateScrollPosition);
-            ticking = true;
-        }
-    });
-
-    // Адаптивные размеры для модального окна
-    function adjustModalForMobile() {
-        const modal = document.querySelector('.modal-content');
-        if (modal && window.innerWidth <= 768) {
-            modal.style.maxHeight = '90vh';
-            modal.style.overflowY = 'auto';
-        }
-    }
-
-    window.addEventListener('resize', adjustModalForMobile);
-    adjustModalForMobile();
-
-    // Улучшенная обработка мобильного меню
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navMenu && navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                if (navToggle) {
-                    navToggle.classList.remove('active');
-                }
-            }
-        });
-    });
-
-    // Закрытие мобильного меню при клике вне его
-    document.addEventListener('click', function(event) {
-        if (navMenu && navMenu.classList.contains('active')) {
-            if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-            }
-        }
-    });
-
-    // Предотвращение скролла при открытом мобильном меню
-    function preventScrollOnMenuOpen() {
-        if (navMenu && navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    }
-
-    // Наблюдатель за изменениями в мобильном меню
-    if (navMenu) {
-        const observer = new MutationObserver(preventScrollOnMenuOpen);
-        observer.observe(navMenu, { attributes: true, attributeFilter: ['class'] });
-    }
-}
-
 // Экспорт функций для возможного использования в других модулях
 window.TemplateManager = {
     openModal,
     closeModal,
     filterTemplates,
-    showNotification,
-    initializeMobileOptimizations
+    showNotification
 };

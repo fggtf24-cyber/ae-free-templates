@@ -405,20 +405,20 @@ body::before {
 }
 
 .floating-card:nth-child(1) {
-    top: 0;
-    left: 0;
+    top: 10%;
+    left: 5%;
     animation-delay: 0s;
 }
 
 .floating-card:nth-child(2) {
-    top: 50%;
-    right: 0;
+    top: 35%;
+    right: 15%;
     animation-delay: 2s;
 }
 
 .floating-card:nth-child(3) {
-    bottom: 0;
-    left: 20%;
+    bottom: 25%;
+    left: 40%;
     animation-delay: 4s;
 }
 
@@ -441,13 +441,13 @@ body::before {
         transform: translateY(0px) rotate(0deg) scale(1); 
     }
     25% { 
-        transform: translateY(-15px) rotate(1deg) scale(1.02); 
+        transform: translateY(-8px) rotate(0.5deg) scale(1.01); 
     }
     50% { 
-        transform: translateY(-25px) rotate(2deg) scale(1.05); 
+        transform: translateY(-12px) rotate(1deg) scale(1.02); 
     }
     75% { 
-        transform: translateY(-15px) rotate(1deg) scale(1.02); 
+        transform: translateY(-8px) rotate(0.5deg) scale(1.01); 
     }
 }
 
@@ -1069,6 +1069,21 @@ body::before {
         font-size: 0.9rem;
     }
     
+    .floating-card:nth-child(1) {
+        top: 5%;
+        left: 2%;
+    }
+    
+    .floating-card:nth-child(2) {
+        top: 30%;
+        left: 2%;
+    }
+    
+    .floating-card:nth-child(3) {
+        bottom: 15%;
+        left: 8%;
+    }
+    
     .card-icon {
         font-size: 2rem;
     }
@@ -1224,6 +1239,21 @@ body::before {
     .floating-card {
         padding: 0.75rem;
         font-size: 0.8rem;
+    }
+    
+    .floating-card:nth-child(1) {
+        top: 8%;
+        left: 3%;
+    }
+    
+    .floating-card:nth-child(2) {
+        top: 43%;
+        right: 12%;
+    }
+    
+    .floating-card:nth-child(3) {
+        bottom: 33%;
+        left: 0%;
     }
     
     .card-icon {
@@ -1387,6 +1417,21 @@ body::before {
     
     .floating-card {
         padding: 0.5rem;
+    }
+    
+    .floating-card:nth-child(1) {
+        top: 12%;
+        left: 4%;
+    }
+    
+    .floating-card:nth-child(2) {
+        top: 47%;
+        right: 15%;
+    }
+    
+    .floating-card:nth-child(3) {
+        bottom: 15%;
+        left: 18%;
     }
     
     .card-icon {
