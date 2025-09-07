@@ -985,48 +985,135 @@ body::before {
 
 /* Адаптивность */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+    
     .nav-menu {
         display: none;
     }
     
     .nav-menu.active {
         display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(15px);
+        border-bottom: 2px solid var(--primary-color);
+        padding: 1.5rem 0;
+        box-shadow: 
+            0 10px 30px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(212, 175, 55, 0.2);
+        gap: 1rem;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
     }
     
     .nav-toggle {
         display: flex;
     }
     
+    .hero {
+        padding: 4rem 0;
+    }
+    
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding: 0 1rem;
     }
     
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.3;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
     
     .hero-buttons {
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
     }
     
-    .features-grid {
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+    }
+    
+    .hero-visual {
+        height: 300px;
+        margin-top: 2rem;
+    }
+    
+    .floating-card {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .card-icon {
+        font-size: 2rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .categories {
+        padding: 4rem 0;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .categories-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .category-card {
+        padding: 2rem;
     }
     
     .modal-body {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
     }
     
     .templates-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .filter-container {
         justify-content: center;
-        gap: 1.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
     }
     
     .filter-btn {
@@ -1035,12 +1122,55 @@ body::before {
         min-width: 120px;
         letter-spacing: 1px;
     }
-
-    .hero-title, .page-title {
+    
+    .page-header {
+        padding: 3rem 0;
+    }
+    
+    .page-title {
         font-size: 2.5rem;
-        text-shadow: 
-            1px 1px 2px rgba(0, 0, 0, 0.7),
-            0 0 15px rgba(212, 175, 55, 0.4);
+    }
+    
+    .page-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .templates {
+        padding: 3rem 0;
+    }
+    
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.25rem;
+    }
+    
+    .footer-description {
+        font-size: 1rem;
+    }
+    
+    .notification {
+        max-width: 90%;
+        right: 5%;
+        left: 5%;
+        top: 10px;
+    }
+    
+    .notification-content {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    .notification-actions {
+        justify-content: center;
     }
     
     .floating-card {
@@ -1055,25 +1185,78 @@ body::before {
 
 @media (max-width: 480px) {
     .container {
-        padding: 0 0.5rem;
+        padding: 0 0.75rem;
+    }
+    
+    .nav-container {
+        padding: 0.75rem;
+    }
+    
+    .nav-logo {
+        font-size: 1.25rem;
     }
     
     .hero {
-        padding: 4rem 0;
+        padding: 3rem 0;
     }
     
     .hero-title {
         font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        line-height: 1.5;
     }
     
     .btn {
         padding: 0.75rem 1.5rem;
         font-size: 0.875rem;
         letter-spacing: 1px;
+        max-width: 250px;
+    }
+    
+    .hero-visual {
+        height: 250px;
+    }
+    
+    .floating-card {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+    }
+    
+    .card-icon {
+        font-size: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 0.9rem;
+    }
+    
+    .categories {
+        padding: 3rem 0;
+    }
+    
+    .section-title {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .category-card {
+        padding: 1.5rem;
+    }
+    
+    .category-icon {
+        font-size: 2.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.25rem;
     }
     
     .filter-container {
-        gap: 1rem;
+        gap: 0.75rem;
         flex-direction: column;
         align-items: center;
     }
@@ -1086,13 +1269,219 @@ body::before {
         max-width: 200px;
     }
     
+    .page-header {
+        padding: 2.5rem 0;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .page-description {
+        font-size: 1rem;
+    }
+    
+    .templates {
+        padding: 2.5rem 0;
+    }
+    
+    .template-card {
+        margin: 0 0.5rem;
+    }
+    
+    .template-content {
+        padding: 1.25rem;
+    }
+    
+    .template-title {
+        font-size: 1.1rem;
+    }
+    
+    .template-description {
+        font-size: 0.9rem;
+    }
+    
     .modal-content {
         margin: 0.5rem;
         border-radius: var(--radius-lg);
+        max-width: calc(100vw - 1rem);
     }
     
     .modal-body {
-        padding: 1.5rem;
+        padding: 1.25rem;
+    }
+    
+    .modal-title {
+        font-size: 1.25rem;
+    }
+    
+    .modal-description {
+        font-size: 0.9rem;
+    }
+    
+    .detail-item {
+        padding: 0.5rem 0;
+        font-size: 0.875rem;
+    }
+    
+    .download-btn {
+        padding: 0.875rem 1.5rem !important;
+        font-size: 0.875rem !important;
+    }
+    
+    .footer {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-logo {
+        font-size: 1.1rem;
+    }
+    
+    .footer-description {
+        font-size: 0.9rem;
+    }
+    
+    .notification {
+        max-width: 95%;
+        right: 2.5%;
+        left: 2.5%;
+        padding: 1rem;
+    }
+    
+    .notification-message {
+        font-size: 0.8rem;
+    }
+    
+    .notification-copy {
+        min-width: 28px;
+        height: 28px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Дополнительные улучшения для очень маленьких экранов */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+    
+    .page-title {
+        font-size: 1.75rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.8rem;
+        max-width: 220px;
+    }
+    
+    .filter-btn {
+        padding: 0.625rem 1rem;
+        font-size: 0.8rem;
+        max-width: 180px;
+    }
+    
+    .floating-card {
+        padding: 0.5rem;
+    }
+    
+    .card-icon {
+        font-size: 1.25rem;
+    }
+    
+    .card-title {
+        font-size: 0.8rem;
+    }
+    
+    .category-card {
+        padding: 1.25rem;
+    }
+    
+    .category-icon {
+        font-size: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1.1rem;
+    }
+    
+    .template-content {
+        padding: 1rem;
+    }
+    
+    .template-title {
+        font-size: 1rem;
+    }
+    
+    .template-description {
+        font-size: 0.85rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .modal-description {
+        font-size: 0.85rem;
+    }
+    
+    .download-btn {
+        padding: 0.75rem 1.25rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Улучшения для планшетов */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-container {
+        gap: 3rem;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .templates-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .modal-body {
+        gap: 1.5rem;
+    }
+    
+    .filter-container {
+        gap: 1.5rem;
+    }
+}
+
+/* Улучшения для больших экранов */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-container {
+        max-width: 1400px;
+    }
+    
+    .templates-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
